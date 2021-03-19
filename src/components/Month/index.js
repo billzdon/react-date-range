@@ -143,6 +143,7 @@ Month.propTypes = {
   showWeekDays: PropTypes.bool,
   showMonthName: PropTypes.bool,
   fixedHeight: PropTypes.bool,
+  DayComponent: PropTypes.func
 };
 
 export default Month;

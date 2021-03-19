@@ -142,6 +142,7 @@ DateRange.propTypes = {
   className: PropTypes.string,
   ranges: PropTypes.arrayOf(rangeShape),
   moveRangeOnFirstSelection: PropTypes.bool,
+  DayComponent: PropTypes.func,
 };
 
 export default DateRange;
