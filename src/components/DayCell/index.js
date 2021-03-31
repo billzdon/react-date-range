@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { startOfDay, format, isSameDay, isAfter, isBefore, endOfDay } from 'date-fns';
 
+export const DATE_FORMAT = 'yyyy-MM-dd'
+
 class DayCell extends Component {
   constructor(props, context) {
     super(props, context);
@@ -159,6 +161,7 @@ class DayCell extends Component {
     return (
       <button
         type="button"
+        data-testid={`day-${format(this.props.day, DATE_FORMAT)}`}
         onMouseEnter={this.handleMouseEvent}
         onMouseLeave={this.handleMouseEvent}
         onFocus={this.handleMouseEvent}
