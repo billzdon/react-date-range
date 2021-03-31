@@ -42,15 +42,11 @@ export function calcFocusDate(currentFocusedDate, props) {
   }
 
   const firstShownDate = startOfMonth(currentFocusedDate)
-  const lastShownDate = endOfMonth(addMonths(currentFocusedDate, props.months))
-  console.log(lastShownDate)
+  const lastShownDate = endOfMonth(addMonths(currentFocusedDate, props.months - 1))
 
   // if we are still in view of target date, don't shift calendar
   if (isAfter(targetInterval.start, firstShownDate) && isBefore(targetInterval.end, lastShownDate)) {
-    console.log('within')
     return currentFocusedDate;
-  } else {
-    console.log('without')
   }
 
   return targetDate;
