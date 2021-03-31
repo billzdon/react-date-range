@@ -9,7 +9,8 @@ import {
   addDays,
   addMonths,
   isAfter,
-  isBefore
+  isBefore,
+  isSameDay
 } from 'date-fns';
 export function calcFocusDate(currentFocusedDate, props) {
   const { shownDate, date, months, ranges, focusedRange, displayMode } = props;
@@ -45,7 +46,10 @@ export function calcFocusDate(currentFocusedDate, props) {
   const lastShownDate = endOfMonth(addMonths(currentFocusedDate, props.months - 1))
 
   // if we are still in view of target date, don't shift calendar
-  if (isAfter(targetInterval.start, firstShownDate) && isBefore(targetInterval.end, lastShownDate)) {
+  if (
+    (isSameDay(targetInterval.start, firstShownDate) || isAfter(targetInterval.start, firstShownDate)) &&
+    (isSameDay(targetInterval.end, lastShownDate) || isBefore(targetInterval.end, lastShownDate))
+  ) {
     return currentFocusedDate;
   }
 
